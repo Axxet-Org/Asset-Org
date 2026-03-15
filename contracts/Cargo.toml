@@ -1,0 +1,3 @@
+[workspace]
+members = ["bluecollar"]
+resolver = "2"
