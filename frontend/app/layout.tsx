@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'BlueCollar — Asset Management',
+  title: 'AssetsOrg — Asset Management',
   description: 'Enterprise asset tracking powered by Stellar',
 };
 

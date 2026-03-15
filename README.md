@@ -1,8 +1,8 @@
-# BlueCollar
+# AssetsOrg
 
 > Enterprise-grade asset and inventory management — powered by [Stellar](https://stellar.org) smart contracts.
 
-BlueCollar is an open-source monorepo for tracking, registering, and managing physical and digital assets across departments, locations, and regions. It combines a NestJS REST API, a Next.js web interface, and Soroban smart contracts on the Stellar blockchain to deliver a transparent, auditable asset lifecycle system.
+AssetsOrg is an open-source monorepo for tracking, registering, and managing physical and digital assets across departments, locations, and regions. It combines a NestJS REST API, a Next.js web interface, and Soroban smart contracts on the Stellar blockchain to deliver a transparent, auditable asset lifecycle system.
 
 ---
 
@@ -28,7 +28,7 @@ BlueCollar is an open-source monorepo for tracking, registering, and managing ph
 
 ## Overview
 
-Organizations managing physical equipment, software licenses, or digital assets across multiple teams often rely on fragmented spreadsheets or rigid legacy tools. BlueCollar solves this by providing:
+Organizations managing physical equipment, software licenses, or digital assets across multiple teams often rely on fragmented spreadsheets or rigid legacy tools. AssetsOrg solves this by providing:
 
 - A **centralized registry** for all asset types
 - **Role-based access control** (Admin, Manager, Staff)
@@ -42,7 +42,7 @@ Organizations managing physical equipment, software licenses, or digital assets 
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                      BlueCollar                         │
+│                      AssetsOrg                         │
 │                                                         │
 │  ┌──────────────┐   REST API   ┌──────────────────────┐ │
 │  │   Next.js    │ ──────────── │     NestJS API       │ │
@@ -94,7 +94,7 @@ The backend is the single source of truth for business logic. Critical asset eve
 ## Monorepo Structure
 
 ```
-bluecollar/
+assetsorg/
 ├── backend/                  # NestJS API
 │   ├── src/
 │   │   ├── assets/           # Asset CRUD module
@@ -120,7 +120,7 @@ bluecollar/
 │   └── package.json
 │
 ├── contracts/                # Stellar Soroban contracts
-│   ├── bluecollar/           # Core asset contract
+│   ├── assetsorg/           # Core asset contract
 │   │   └── src/lib.rs
 │   └── Cargo.toml
 │
@@ -179,7 +179,7 @@ cargo build --target wasm32-unknown-unknown --release
 
 # Deploy to Stellar testnet
 stellar contract deploy \
-  --wasm target/wasm32-unknown-unknown/release/bluecollar.wasm \
+  --wasm target/wasm32-unknown-unknown/release/assetsorg.wasm \
   --network testnet \
   --source <your-account>
 ```
@@ -196,7 +196,7 @@ stellar contract deploy \
 | `DATABASE_PORT`   | PostgreSQL port                    | `5432`        |
 | `DATABASE_USER`   | PostgreSQL user                    | `postgres`    |
 | `DATABASE_PASSWORD` | PostgreSQL password              | `postgres`    |
-| `DATABASE_NAME`   | Database name                      | `bluecollar`  |
+| `DATABASE_NAME`   | Database name                      | `assetsorg`  |
 | `JWT_SECRET`      | Secret for signing JWT tokens      | —             |
 | `PORT`            | API server port                    | `3001`        |
 
@@ -233,7 +233,7 @@ All endpoints are prefixed with `/api`. Protected routes require `Authorization:
 
 ## Stellar Integration
 
-BlueCollar uses [Stellar Soroban](https://soroban.stellar.org) smart contracts to record critical asset events on-chain. This provides:
+AssetsOrg uses [Stellar Soroban](https://soroban.stellar.org) smart contracts to record critical asset events on-chain. This provides:
 
 - **Immutable audit trail** — every registration, transfer, and retirement is recorded on the Stellar blockchain
 - **Decentralized verification** — anyone can verify asset history without trusting a central server
@@ -262,8 +262,8 @@ docker compose up --build
 ```
 
 A `docker-compose.yml` is planned for the full release. It will include:
-- `bluecollar-api` — NestJS backend
-- `bluecollar-web` — Next.js frontend
+- `assetsorg-api` — NestJS backend
+- `assetsorg-web` — Next.js frontend
 - `postgres` — database
 
 ### CI/CD

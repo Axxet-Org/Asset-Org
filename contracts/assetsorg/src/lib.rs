@@ -25,10 +25,10 @@ pub enum DataKey {
 }
 
 #[contract]
-pub struct BlueCollarContract;
+pub struct AssetsOrgContract;
 
 #[contractimpl]
-impl BlueCollarContract {
+impl AssetsOrgContract {
     /// Register a new asset on-chain
     pub fn register_asset(env: Env, name: String, owner: Address) -> u64 {
         owner.require_auth();

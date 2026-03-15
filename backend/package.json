@@ -1,5 +1,5 @@
 {
-  "name": "@bluecollar/backend",
+  "name": "@assetsorg/backend",
   "version": "1.0.0",
   "scripts": {
     "start:dev": "nest start --watch",
